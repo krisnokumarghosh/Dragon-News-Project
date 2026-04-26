@@ -2,15 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import userAvater from '@/assets/user.png'
+import Navlink from './Navlink';
 
 const Navbar = () => {
     return (
         <div className='container mx-auto grid grid-cols-3 justify-items-center mt-8.5'>
             <div></div>
            <ul className='flex gap-6 items-center text-[#706F6F]'>
-            <li><Link href={"/"}>Home</Link></li>
-            <li><Link href={"/about"}>About</Link></li>
-            <li><Link href={"/career"}>Career</Link></li>
+            <li><Navlink href={"/"}>Home</Navlink></li>
+            <li><Navlink href={"/about"}>About</Navlink></li>
+            <li><Navlink href={"/career"}>Career</Navlink></li>
            </ul>
 
            <div className='flex gap-4 items-center'>
