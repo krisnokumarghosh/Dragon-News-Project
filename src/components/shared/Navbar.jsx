@@ -15,7 +15,7 @@ const Navbar = () => {
            </ul>
 
            <div className='flex gap-4 items-center'>
-            <Image src={userAvater} height={'41px'} alt='user avater'></Image>
+            <Image className='rounded-full' src={userAvater} height={'41px'} alt='user avater'></Image>
             <button className='btn px-10.5 bg-[#403F3F] text-white rounded-none'><Link href={"/login"}>Login</Link></button>
            </div>
         </div>
