@@ -16,14 +16,14 @@ console.log(errors);
 
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center">
-      <div className="py-19 mt-10 px-18.25 shadow border border-base-200 rounded-xl bg-white w-160">
-        <h2 className="text-center text-[30px] font-semibold text-[#403F3F] mb-12.5">
+      <div className="py-19 mt-10 px-7 md:px-18.25 shadow border border-base-200 rounded-xl bg-white w-full md:w-160">
+        <h2 className="text-center text-[20px] md:text-[30px] font-semibold text-[#403F3F] mb-12.5">
           Login to your account
         </h2>
         <div className="divider"></div>
         <form onSubmit={handleSubmit(handleLoginFunc)}>
           <fieldset className="fieldset bg-white rounded-box w-full  p-4">
-            <label className="label font-semibold text-[20px] text-[#403F3F]">
+            <label className="label mt-5 font-semibold text-[17px] md:text-[20px] text-[#403F3F]">
               Email address
             </label>
             <input
@@ -36,7 +36,7 @@ console.log(errors);
               errors.email && <p className="mt-1 text-red-500">{errors.email.message}</p>
             }
 
-            <label className="label mt-3 font-semibold text-[20px] text-[#403F3F]">
+            <label className="label mt-5 font-semibold text-[17px] md:text-[20px] text-[#403F3F]">
               Password
             </label>
             <input
@@ -54,8 +54,8 @@ console.log(errors);
             </button>
           </fieldset>
         </form>
-        <p className="mt-7.5 text-center font-semibold text-[#706F6F]">
-          Don't Have An Account ?{" "}
+        <p className="mt-7.5 text-center text-[13px] md:text-[16px] font-semibold text-[#706F6F]">
+          Dont Have An Account ?{" "}
           <Link className="text-[#F75B5F]" href={"/register"}>
             Register
           </Link>
