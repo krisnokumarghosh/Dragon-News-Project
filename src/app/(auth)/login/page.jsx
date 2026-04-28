@@ -24,6 +24,15 @@ const LoginPage = () => {
     });
 
     console.log(res, error);
+
+     if(error){
+      alert(error.message)
+    }
+
+    if(res){
+      alert(res.message)
+    }
+    
     
 
   };
