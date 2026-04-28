@@ -1,18 +1,32 @@
-'use client'
+"use client";
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { BiErrorAlt } from "react-icons/bi";
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const {register, handleSubmit, formState: { errors }} = useForm();
-
-  const handleLoginFunc = (data) => {
+  const handleLoginFunc = async (data) => {
     console.log(data);
+
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email,
+      password: data.password,
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    console.log(res, error);
     
-  }
-console.log(errors);
+
+  };
 
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center">
@@ -30,11 +44,13 @@ console.log(errors);
               type="email"
               className="input p-5 w-full border-0 bg-[#F3F3F3]"
               placeholder="Email"
-              {...register("email", { required: "Required field can't be empty" })}
+              {...register("email", {
+                required: "Required field can't be empty",
+              })}
             />
-            {
-              errors.email && <p className="mt-1 text-red-500">{errors.email.message}</p>
-            }
+            {errors.email && (
+              <p className="mt-1 text-red-500">{errors.email.message}</p>
+            )}
 
             <label className="label mt-5 font-semibold text-[17px] md:text-[20px] text-[#403F3F]">
               Password
@@ -43,11 +59,13 @@ console.log(errors);
               type="password"
               className="input p-5 w-full border-0 bg-[#F3F3F3]"
               placeholder="Password"
-              {...register("password", { required: "Required field can't be empty" })}
+              {...register("password", {
+                required: "Required field can't be empty",
+              })}
             />
-            {
-              errors.password && <p className="mt-1 text-red-500">{errors.password.message}</p>
-            }
+            {errors.password && (
+              <p className="mt-1 text-red-500">{errors.password.message}</p>
+            )}
 
             <button className="btn  bg-[#403F3F] text-white mt-6 font-semibold">
               Login
